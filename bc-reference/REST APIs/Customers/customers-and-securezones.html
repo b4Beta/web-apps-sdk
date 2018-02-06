@@ -197,7 +197,7 @@ console.log("Response text: " + jqXHR.responseText);
 <ul>
 <li>Note: When building apps always use relative request URLs. Do not use the "full" URL above because you might have problems running your app on a different site as the site_ID parameter will be different.</li>
 </ul></li>
-<li><strong>Path:</strong> /webresources/api/v3/sites/current/customers/[customer_ID]/securezones?item=[secure-zone_ID]
+<li><strong>Path:</strong> /webresources/api/v3/sites/current/customers/[customer_ID]/securezones?item=[ {"zoneId" : secure-zone_ID}]
   <ul>
 <li>Alternatively, use siteID instead of 'current'</li>
   </ul>
@@ -214,7 +214,7 @@ console.log("Response text: " + jqXHR.responseText);
 <div class="request-sample">
 <p><strong>Request:</strong></p>
 
-<pre class="language-javascript"><code>{% raw %}DELETE /webresources/api/v3/sites/current/customers/9593213/securezones?items=51 HTTPS/1.1
+<pre class="language-javascript"><code>{% raw %}DELETE /webresources/api/v3/sites/current/customers/9593213/securezones?item=[ {"zoneId" : 51}]HTTPS/1.1
 Authorization: 14f87f21c5ea4830a06a6314a8aad82b45bc61dc08f24a0fb55599cea83ca811
 Connection: keep-alive
 Content-Type: application/json
@@ -234,7 +234,7 @@ Content-Length: length{% endraw %}</code></pre>
 <h3>Sample code</h3>
 <pre class="language-javascript"><code>{% raw %}var access_token = BCAPI.Helper.Site.getAccessToken();
 var request = $.ajax({
-    url: "/webresources/api/v3/sites/current/customers/7051775/securezones?items=[{'customerId':7051775,'zoneId':51}]",
+    url: "/webresources/api/v3/sites/current/customers/7051775/securezones?items=[{'zoneId':51}]",
     type: "DELETE",
     connection: "keep-alive",    
     contentType: "application/json",
